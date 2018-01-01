@@ -5,7 +5,7 @@ import { ListGroup } from 'reactstrap';
 import NavBarComp from './components/navbar';
 import './App.css';
 import './assets/akrobat/Akrobat-Regular.otf';
-import entities from './reducers/entities.jsx';
+import reducer from './reducers';
 import VehiclesListItem from './components/vehiclesList';
 
 
@@ -47,7 +47,8 @@ class App extends Component {
 }
 
 const mapStateToProps = state => ({
-  vehicles: state.vehicles,
+  vehicles: state.entities.vehicles,
+  list: state.pages.vehiclesList.vehicles,
 });
 
 const mapDispatchToProps = dispatch => ({

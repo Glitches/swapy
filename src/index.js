@@ -6,11 +6,11 @@ import { createStore } from 'redux';
 import './index.css';
 import App from './App';
 import registerServiceWorker from './registerServiceWorker';
-import entities from './reducers/entities';
+import reducer from './reducers';
 
 
 const store = createStore(
-  entities,
+  reducer,
   window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__(),
 );
 

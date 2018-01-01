@@ -1,15 +1,25 @@
 const defaultState = {
-  vehicles: [],
-  favoriteVehicles: {},
+  vehicles: {},
 };
+
+const normalize = (arr, key) => arr.reduce((accum, el) => {
+  return {
+    ...accum,
+    [el[key]]: el,
+  };
+}, {});
 
 export default (state = defaultState, action) => {
   switch (action.type) {
     case 'ADD_VEHICLES':
       return {
         ...state,
-        vehicles: action.vehicles,
+        vehicles: {
+          ...state.vehicles,
+          ...normalize(action.vehicles, 'url')
+        },
       };
+      break;
     default:
       return state;
   }

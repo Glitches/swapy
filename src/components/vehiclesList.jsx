@@ -1,14 +1,13 @@
-
-
 import React from 'react';
 import { ListGroupItem } from 'reactstrap';
 
 const VehiclesListItem = (props) => {
-  return (props.vehicles.vehicles.lenght === 0) ? 
-    (<h1>ciao</h1>):
-    (props.vehicles.vehicles.map((el) => {
+  console.log(props.vehicles);
+  return (props.vehicles.list.lenght === 0) ? 
+    (<h1>ciao</h1>) :
+    (props.vehicles.list.map((url) => {
       return (
-        <a href="#"><ListGroupItem>{el.name}</ListGroupItem></a>
+        <a href="#"><ListGroupItem>{props.vehicles.vehicles[url].name}</ListGroupItem></a>
       );
     }));
 };
