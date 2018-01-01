@@ -5,7 +5,7 @@ import { ListGroup } from 'reactstrap';
 import NavBarComp from './components/navbar';
 import './App.css';
 import './assets/akrobat/Akrobat-Regular.otf';
-import entities from './reducers/entities';
+import entities from './reducers/entities.jsx';
 import VehiclesListItem from './components/vehiclesList';
 
 

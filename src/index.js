@@ -9,17 +9,17 @@ import registerServiceWorker from './registerServiceWorker';
 import entities from './reducers/entities';
 
 
- const store = createStore(
+const store = createStore(
   entities,
-  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__(),
 );
 
 // const store = createStore(reducerName)
 
 ReactDOM.render(
-<Provider store={store}>
+  <Provider store={store}>
     <App />
-</Provider>, document.getElementById('root'));
+  </Provider>, document.getElementById('root'));
 registerServiceWorker();
 
 // export default store

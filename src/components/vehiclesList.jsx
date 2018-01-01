@@ -8,7 +8,7 @@ const VehiclesListItem = (props) => {
     (<h1>ciao</h1>):
     (props.vehicles.vehicles.map((el) => {
       return (
-        <ListGroupItem>{el.name}</ListGroupItem>
+        <a href="#"><ListGroupItem>{el.name}</ListGroupItem></a>
       );
     }));
 };
