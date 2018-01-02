@@ -7,16 +7,15 @@ import './App.css';
 import './assets/akrobat/Akrobat-Regular.otf';
 import reducer from './reducers';
 import VehiclesListItem from './components/vehiclesList';
+import Show from './components/Item';
 
 
 class App extends Component {
   state = {
-    vehicles: []
+    vehicles: [],
+    showSpecs: {}
   }
-  // constructor(props) {
-  //   super(props);
-  //   // this.fetchVehicles();
-  // }
+ 
   componentDidMount() {
     this.fetchVehicles();
   }
@@ -41,6 +40,8 @@ class App extends Component {
         <ListGroup>
           <VehiclesListItem vehicles={this.props} />
         </ListGroup>
+        {/* <Item></Item> */}
+        <Show showSpecs={this.props}/>>
       </div>
     );
   }
@@ -49,6 +50,7 @@ class App extends Component {
 const mapStateToProps = state => ({
   vehicles: state.entities.vehicles,
   list: state.pages.vehiclesList.vehicles,
+  showSpecs: state.pages.vehiclesList.showSpecs,
 });
 
 const mapDispatchToProps = dispatch => ({
@@ -56,6 +58,10 @@ const mapDispatchToProps = dispatch => ({
     type: 'ADD_VEHICLES',
     vehicles,
   }),
+  showSpecs: vehicle => dispatch({
+    type: 'SHOW_SPECS',
+    vehicle,
+  })
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);

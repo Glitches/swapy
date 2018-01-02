@@ -19,7 +19,6 @@ export default (state = defaultState, action) => {
           ...normalize(action.vehicles, 'url')
         },
       };
-      break;
     default:
       return state;
   }

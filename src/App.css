@@ -19,6 +19,6 @@ NavBarComp {
   padding-top: 10%;
   position: relative;
   /* background-color: red; */
-  max-width: 40%;
+  max-width: 30%;
   min-width: 20%;
 }
