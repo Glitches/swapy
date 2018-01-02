@@ -4,17 +4,13 @@ import { ListGroupItem, Progress } from 'reactstrap';
 
 
 class VehiclesListItem extends React.Component {
-  state = {
-    id : '',
-  }
-
   constructor(props) {
     super(props);
   }
 
   handleClick = (e) => {
-    console.log(this.props);
-    console.log(e.target.id);
+    // console.log(this.props);
+    // console.log(e.target.id);
     this.props.vehicles.showSpecs(e.target.id);
   } 
 

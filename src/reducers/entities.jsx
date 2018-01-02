@@ -1,13 +1,13 @@
 const defaultState = {
   vehicles: {},
+  show: [],
+
 };
 
-const normalize = (arr, key) => arr.reduce((accum, el) => {
-  return {
-    ...accum,
-    [el[key]]: el,
-  };
-}, {});
+const normalize = (arr, key) => arr.reduce((accum, el) => ({
+  ...accum,
+  [el[key]]: el,
+}), {});
 
 export default (state = defaultState, action) => {
   switch (action.type) {
@@ -16,8 +16,14 @@ export default (state = defaultState, action) => {
         ...state,
         vehicles: {
           ...state.vehicles,
-          ...normalize(action.vehicles, 'url')
+          ...normalize(action.vehicles, 'url'),
         },
+      };
+    case 'SHOW_SPECS':
+      // console.log(action);
+      return {
+        ...state,
+        show: [action.show],
       };
     default:
       return state;

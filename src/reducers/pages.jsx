@@ -1,7 +1,6 @@
 const defaultState = {
   vehiclesList: {
     vehicles: [],
-    // showSpecs: {},
   },
 };
 
@@ -14,11 +13,6 @@ export default (state = defaultState, action) => {
           ...state.vehiclesList,
           vehicles: action.vehicles.map(el => el.url),
         },
-      };
-    case 'SHOW_SPECS':
-      return {
-        ...state,
-        showSpecs: action.showSpecs,
       };
     default:
   }

@@ -12,11 +12,22 @@
   border: 1px solid black;
   box-shadow: 6px 6px 2px 1px rgba(0, 0, 255, .2);
 }
+
 NavBarComp {
   position: fixed;
 }
+
+.specsDiv {
+
+  padding: 20% 2rem;
+}
+.dashBoard { 
+  display: flex;
+flex-direction: row;
+flex-wrap: wrap;
+}
 .list-group {
-  padding-top: 10%;
+  padding-top: 20%;
   position: relative;
   /* background-color: red; */
   max-width: 30%;

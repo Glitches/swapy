@@ -5,17 +5,12 @@ import { ListGroup } from 'reactstrap';
 import NavBarComp from './components/navbar';
 import './App.css';
 import './assets/akrobat/Akrobat-Regular.otf';
-import reducer from './reducers';
+// import reducer from './reducers';
 import VehiclesListItem from './components/vehiclesList';
 import Show from './components/Item';
 
 
 class App extends Component {
-  state = {
-    vehicles: [],
-    showSpecs: {}
-  }
- 
   componentDidMount() {
     this.fetchVehicles();
   }
@@ -29,19 +24,21 @@ class App extends Component {
       });
   }
 
-
   render() {
-    console.log(this.props);
+    // console.log(this.props);
     return (
-      <div> 
-      <div className="App">
-        <NavBarComp />
-        </div>  
-        <ListGroup>
-          <VehiclesListItem vehicles={this.props} />
-        </ListGroup>
-        {/* <Item></Item> */}
-        <Show showSpecs={this.props}/>>
+      <div>
+        <div className="App">
+          <NavBarComp />
+        </div>
+        <div className="dashBoard">
+          <ListGroup>
+            <VehiclesListItem vehicles={this.props} />
+          </ListGroup>
+          <div className="specsDiv">
+            <Show show={this.props} />
+          </div>
+        </div>
       </div>
     );
   }
@@ -50,7 +47,7 @@ class App extends Component {
 const mapStateToProps = state => ({
   vehicles: state.entities.vehicles,
   list: state.pages.vehiclesList.vehicles,
-  showSpecs: state.pages.vehiclesList.showSpecs,
+  show: state.entities.show,
 });
 
 const mapDispatchToProps = dispatch => ({
@@ -58,10 +55,10 @@ const mapDispatchToProps = dispatch => ({
     type: 'ADD_VEHICLES',
     vehicles,
   }),
-  showSpecs: vehicle => dispatch({
+  showSpecs: show => dispatch({
     type: 'SHOW_SPECS',
-    vehicle,
-  })
+    show,
+  }),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);
